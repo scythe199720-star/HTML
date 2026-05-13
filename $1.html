@@ -6,85 +6,24 @@
     <title>Our Valentine Memory</title>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            margin: 0; padding: 0; height: 100vh; 
-            display: flex; justify-content: center; align-items: center; 
-            background-color: #ffdde1; font-family: 'Pixelify Sans', cursive; 
-            overflow: hidden; 
-        }
-
+        body { margin: 0; padding: 0; height: 100vh; display: flex; justify-content: center; align-items: center; background-color: #ffdde1; font-family: 'Pixelify Sans', cursive; overflow: hidden; }
         #heartCanvas { position: absolute; top: 0; left: 0; pointer-events: none; z-index: 1; }
-
-        /* Container utama */
-        #letter-container { 
-            background-color: #ff8a80; padding: 6px; border: 3px solid #b71c1c; 
-            box-shadow: 8px 8px 0px #880e4f; animation: heartbeat 1.5s infinite; 
-            z-index: 10; width: 85%; max-width: 320px; 
-        }
-
+        #letter-container { background-color: #ff8a80; padding: 6px; border: 3px solid #b71c1c; box-shadow: 8px 8px 0px #880e4f; animation: heartbeat 1.5s infinite; z-index: 10; width: 85%; max-width: 320px; }
         @keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
-
-        .letter-window { 
-            background-color: #fff1f1; border: 2px solid #b71c1c; 
-            padding: 20px 15px; text-align: center; position: relative; 
-        }
-
-        .window-header { 
-            position: absolute; top: 0; left: 0; right: 0; height: 18px; 
-            background-color: #ff8a80; border-bottom: 2px solid #b71c1c; 
-            display: flex; justify-content: space-between; padding: 2px 8px; 
-            color: white; font-size: 10px; align-items: center; 
-        }
-
+        .letter-window { background-color: #fff1f1; border: 2px solid #b71c1c; padding: 20px 15px; text-align: center; position: relative; }
+        .window-header { position: absolute; top: 0; left: 0; right: 0; height: 18px; background-color: #ff8a80; border-bottom: 2px solid #b71c1c; display: flex; justify-content: space-between; padding: 2px 8px; color: white; font-size: 10px; align-items: center; }
         #letter-title { font-size: 1.1rem; color: #b71c1c; margin: 15px 0 10px 0; }
-        
         .cat { width: 100px; image-rendering: pixelated; margin: 10px 0; }
+        .btn { padding: 8px 15px; font-family: inherit; font-size: 0.8rem; font-weight: bold; cursor: pointer; border: 2px solid #b71c1c; background-color: #fff; color: #b71c1c; box-shadow: 3px 3px 0px #b71c1c; margin: 5px; }
 
-        .btn { 
-            padding: 8px 15px; font-family: inherit; font-size: 0.8rem; 
-            font-weight: bold; cursor: pointer; border: 2px solid #b71c1c; 
-            background-color: #fff; color: #b71c1c; box-shadow: 3px 3px 0px #b71c1c; 
-            margin: 5px;
-        }
-
-        /* Galeri Grid 3 Kolom */
-        #gallery-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #ffdde1; z-index: 100;
-            display: none; flex-direction: column; align-items: center; 
-            padding: 20px; box-sizing: border-box; overflow-y: auto;
-        }
-
+        #gallery-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffdde1; z-index: 100; display: none; flex-direction: column; align-items: center; padding: 20px; box-sizing: border-box; overflow-y: auto; }
         .gallery-title { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #b71c1c; margin: 10px 0; }
-        
-        .photo-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 8px; 
-            width: 100%; 
-            max-width: 350px;
-            margin-bottom: 20px;
-        }
+        .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 100%; max-width: 350px; margin-bottom: 20px; }
+        .photo-grid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border: 2px solid white; border-radius: 4px; cursor: pointer; }
 
-        .photo-grid img { 
-            width: 100%; aspect-ratio: 1/1; object-fit: cover;
-            border: 2px solid white; border-radius: 4px; 
-            cursor: pointer; 
-        }
-
-        /* Preview Fullscreen */
-        #fullscreen-view {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9); z-index: 200;
-            display: none; justify-content: center; align-items: center;
-        }
-
+        #fullscreen-view { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 200; display: none; justify-content: center; align-items: center; }
         #fullscreen-view img { max-width: 90%; max-height: 80%; border: 3px solid white; }
-        
-        #close-fullscreen { 
-            position: absolute; top: 20px; right: 20px; 
-            color: white; font-size: 2.5rem; cursor: pointer;
-        }
+        #close-fullscreen { position: absolute; top: 20px; right: 20px; color: white; font-size: 2.5rem; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -92,15 +31,13 @@
 
     <div id="letter-container">
         <div class="letter-window">
-            <div class="window-header"><span>RIVA ANGGRAENI🍥🍭🍙</span><span>❤</span></div>
-            <h1 id="letter-title">Apakah kamu mencintai ku ?</h1>
+            <div class="window-header"><span>LOVE.EXE</span><span>❤</span></div>
+            <h1 id="letter-title">Will you be my Valentine?</h1>
             <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueGZ3bmZueGZ3bmZueGZ3Jm1zPTE/KztT2c4u8mYYUiCiS0/giphy.gif" class="cat" id="letter-cat">
-            
             <div id="letter-buttons">
                 <button class="btn" id="yesBtn">YES!</button>
                 <button class="btn" id="noBtn">No</button>
             </div>
-
             <div id="next-step" style="display: none">
                 <p style="color: #b71c1c; font-size: 0.8rem; font-weight: bold;">I knew you'd say yes! ❤️</p>
                 <button class="btn" id="viewGallery">Buka Galeri Kenangan ✨</button>
@@ -111,7 +48,7 @@
     <div id="gallery-overlay">
         <h2 class="gallery-title">Our Precious Moments</h2>
         <div class="photo-grid">
-            <!-- GANTI NAMA FILE DI BAWAH SESUAI FOTO YANG KAMU UPLOAD KE GITHUB -->
+            <!-- Nama file sudah disesuaikan dengan gambar 1001118601.jpg -->
             <img src="love1.jpg" onclick="openFull(this.src)">
             <img src="love2.jpg" onclick="openFull(this.src)">
             <img src="love3.jpg" onclick="openFull(this.src)">
@@ -155,7 +92,6 @@
             noBtn.style.top = Math.random() * (window.innerHeight - 40) + 'px';
         });
 
-        // Animasi Background Hati
         const canvas = document.getElementById('heartCanvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
@@ -174,4 +110,5 @@
         draw();
     </script>
 </body>
-</html>
+    </html>
+    
