@@ -15,12 +15,10 @@
         #letter-title { font-size: 1.1rem; color: #b71c1c; margin: 15px 0 10px 0; }
         .cat { width: 100px; image-rendering: pixelated; margin: 10px 0; }
         .btn { padding: 8px 15px; font-family: inherit; font-size: 0.8rem; font-weight: bold; cursor: pointer; border: 2px solid #b71c1c; background-color: #fff; color: #b71c1c; box-shadow: 3px 3px 0px #b71c1c; margin: 5px; }
-
         #gallery-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffdde1; z-index: 100; display: none; flex-direction: column; align-items: center; padding: 20px; box-sizing: border-box; overflow-y: auto; }
         .gallery-title { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #b71c1c; margin: 10px 0; }
         .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 100%; max-width: 350px; margin-bottom: 20px; }
         .photo-grid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border: 2px solid white; border-radius: 4px; cursor: pointer; }
-
         #fullscreen-view { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 200; display: none; justify-content: center; align-items: center; }
         #fullscreen-view img { max-width: 90%; max-height: 80%; border: 3px solid white; }
         #close-fullscreen { position: absolute; top: 20px; right: 20px; color: white; font-size: 2.5rem; cursor: pointer; }
@@ -28,7 +26,6 @@
 </head>
 <body>
     <canvas id="heartCanvas"></canvas>
-
     <div id="letter-container">
         <div class="letter-window">
             <div class="window-header"><span>LOVE.EXE</span><span>❤</span></div>
@@ -48,7 +45,6 @@
     <div id="gallery-overlay">
         <h2 class="gallery-title">Our Precious Moments</h2>
         <div class="photo-grid">
-            <!-- Nama file sudah disesuaikan dengan gambar 1001118601.jpg -->
             <img src="love1.jpg" onclick="openFull(this.src)">
             <img src="love2.jpg" onclick="openFull(this.src)">
             <img src="love3.jpg" onclick="openFull(this.src)">
@@ -110,5 +106,4 @@
         draw();
     </script>
 </body>
-    </html>
-    
+</html>
